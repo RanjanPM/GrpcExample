@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcExample";
+
+package grpc_example;
+
+// The user service definition
+service UserService {
+  // Gets a user by ID
+  rpc GetUser (GetUserRequest) returns (User);
+  
+  // Creates a new user
+  rpc CreateUser (CreateUserRequest) returns (User);
+  
+  // Gets all users (server streaming)
+  rpc GetAllUsers (Empty) returns (stream User);
+  
+  // Batch create users (client streaming)
+  rpc BatchCreateUsers (stream CreateUserRequest) returns (BatchCreateResponse);
+}
+
+// The request message for getting a user
+message GetUserRequest {
+  int32 id = 1;
+}
+
+// The request message for creating a user
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  int32 age = 3;
+}
+
+// The user message
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+  string created_at = 5;
+}
+
+// Empty message for requests with no parameters
+message Empty {
+}
+
+// Response for batch operations
+message BatchCreateResponse {
+  int32 created_count = 1;
+  repeated User users = 2;
+}
