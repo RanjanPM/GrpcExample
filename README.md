@@ -2,6 +2,9 @@
 
 A comprehensive example demonstrating gRPC implementation in C# with both server and client applications, showcasing different RPC patterns including unary, server streaming, and client streaming.
 
+## 🔍 Keywords
+`grpc` `csharp` `dotnet` `protobuf` `microservices` `rpc` `tutorial` `example` `asp-net-core` `http2` `client-server` `streaming` `protocol-buffers` `distributed-systems`
+
 ## 🚀 Features
 
 - **Unary RPCs**: Traditional request-response pattern (GetUser, CreateUser)
